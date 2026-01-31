@@ -1,0 +1,75 @@
+*{margin:0;padding:0;font-family:Arial}
+
+body{
+background:#0b0f17;
+color:white;
+}
+
+header{
+display:flex;
+justify-content:space-between;
+padding:20px 60px;
+}
+
+nav a{
+margin-left:30px;
+color:white;
+text-decoration:none;
+}
+
+.hero{
+height:80vh;
+padding:80px;
+}
+
+.hero h1{
+font-size:60px;
+}
+
+.stats{
+display:flex;
+justify-content:space-around;
+padding:40px;
+background:#111827;
+}
+
+.services{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:30px;
+padding:60px;
+}
+
+.service{
+background:#111;
+padding:40px;
+border-radius:15px;
+transition:.3s;
+}
+
+.service:hover{
+transform:translateY(-10px);
+background:#1f2933;
+}
+
+.about,.cta,.contact{
+padding:60px;
+text-align:center;
+}
+
+input,textarea{
+width:300px;
+padding:10px;
+margin-top:15px;
+}
+
+button{
+padding:12px 30px;
+margin-top:20px;
+cursor:pointer;
+}
+
+@media(max-width:768px){
+    .hero h1{font-size:36px}
+    }
+    
