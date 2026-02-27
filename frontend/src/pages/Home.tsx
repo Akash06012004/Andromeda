@@ -4,6 +4,7 @@ import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { motion } from "framer-motion";
+import About from "../components/About";
 
 // 🔥 VERCEL
 import { Analytics } from "@vercel/analytics/react";
@@ -29,9 +30,9 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
           >
-            Build Digital.<br />
-            Measure Growth.<br />
-            Scale Smart.
+            From Idea to Scalable Product-<br />
+            We Build & <br />
+            Grow Startups
           </motion.h1>
 
           <motion.p
@@ -39,7 +40,7 @@ export default function Home() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
-            We help startups grow using web development + data driven marketing.
+          We design, build, and scale digital products that increase conversions and drive real business growth.
           </motion.p>
 
           <a href="tel:+919664712233" className="call-link">
@@ -53,7 +54,7 @@ export default function Home() {
 
         </div>
       </section>
-
+      <About/>
       {/* SERVICES */}
       <section id="services">
         <Services />
@@ -104,6 +105,17 @@ export default function Home() {
       {/* 🔥 VERCEL TRACKING */}
       <Analytics />
       <SpeedInsights />
+
+      {/* WHATSAPP FLOAT BUTTON */}
+  <a
+  href="https://wa.me/919664712233?text=Hi%20Akash,%20I%20want%20to%20discuss%20a%20project"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="whatsapp-float"
+  >
+  <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="28" />
+</a>
     </>
+    
   );
 }

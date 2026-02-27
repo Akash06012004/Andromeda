@@ -57,7 +57,7 @@ export default function Contact() {
             Let’s talk.
           </p>
 
-          <div className="contact-detail">📧 hello@Andromeda.com</div>
+          <div className="contact-detail">📧 Akashkumar01459@gmail.com</div>
           <div className="contact-detail">📞 +91 9664712233</div>
           <div className="contact-detail">📍 Gujarat,India</div>
         </div>
