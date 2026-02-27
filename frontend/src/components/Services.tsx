@@ -1,32 +1,25 @@
 import { useState } from "react";
+import { useSwipeable } from "react-swipeable";
 
 export default function Services() {
 
-  const [active, setActive] = useState<"web" | "marketing">("web");;
+  const [active, setActive] = useState<"web" | "marketing">("web");
 
-  const data = {
-    web: {
-      title: "Web Development",
-      desc: "We build lightning-fast websites, dashboards, admin panels and startup platforms.",
-      img: "/services-web.png"
-    },
-    marketing: {
-      title: "Digital Marketing",
-      desc: "SEO, Ads, Analytics & Growth strategies to scale your business faster.",
-      img: "/services-marketing.png"
-    }
-  };
+  const handlers = useSwipeable({
+    onSwipedLeft: () => setActive("marketing"),
+    onSwipedRight: () => setActive("web"),
+    trackMouse: true
+  });
 
   return (
-    <div className="services-modern">
+    <div className="services-modern" {...handlers}>
 
       {/* LEFT */}
       <div className="services-left">
 
         <h1 className="services-title">Our Services</h1>
 
-        {/* TABS */}
-        <div className="service-tabs">
+        <div className="service-tabs big-tabs">
 
           <button
             className={active === "web" ? "active" : ""}
@@ -44,17 +37,41 @@ export default function Services() {
 
         </div>
 
-        {/* CONTENT */}
-        <p>{data[active].desc}</p>
+        {active === "web" && (
+          <p>
+            We build lightning-fast websites, dashboards, admin panels and startup
+            platforms using modern technologies like React and Node.
+          </p>
+        )}
+
+        {active === "marketing" && (
+          <p>
+            We help brands grow with SEO, paid ads, funnels, analytics and
+            data-driven marketing strategies that convert visitors into customers.
+          </p>
+        )}
 
       </div>
 
       {/* RIGHT IMAGE */}
       <div className="services-right">
+
         <img
-          src={data[active].img}
+          key={active}   // IMPORTANT for animation
+          src={
+            active === "web"
+              ? "/services-web.png"
+              : "/services-marketing.png"
+          }
           className="service-image"
         />
+
+      </div>
+
+      {/* DOT INDICATOR */}
+      <div className="swipe-dots">
+        <span className={active === "web" ? "active" : ""}></span>
+        <span className={active === "marketing" ? "active" : ""}></span>
       </div>
 
     </div>

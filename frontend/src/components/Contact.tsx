@@ -57,7 +57,7 @@ export default function Contact() {
 
           <div className="contact-detail">📧 hello@Andromeda.com</div>
           <div className="contact-detail">📞 +91 9664712233</div>
-          <div className="contact-detail">📍 India</div>
+          <div className="contact-detail">📍 Gujarat,India</div>
         </div>
 
         {/* RIGHT CARD */}

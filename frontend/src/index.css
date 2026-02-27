@@ -761,6 +761,59 @@ section {
   font-weight:500;
 }
 
+/* SWIPE INDICATOR */
+
+.swipe-dots{
+  display:none;
+  justify-content:center;
+  gap:8px;
+  margin-top:20px;
+}
+
+.swipe-dots span{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:rgba(255,255,255,.3);
+}
+
+.swipe-dots span.active{
+  background:#3b82f6;
+  box-shadow:0 0 10px #3b82f6;
+}
+
+/* MOBILE SWIPE ENABLE */
+
+@media(max-width:768px){
+
+  .services-modern{
+    overflow:hidden;
+    touch-action:pan-y;
+  }
+
+  .swipe-dots{
+    display:flex;
+  }
+
+}
+
+.service-image{
+  width:100%;
+  border-radius:16px;
+  animation: slideFade .4s ease;
+}
+
+@keyframes slideFade{
+  from{
+    opacity:0;
+    transform:translateX(40px);
+  }
+  to{
+    opacity:1;
+    transform:translateX(0);
+  }
+}
+
 /* MOBILE */
 .menu-btn{
   display:none;
@@ -775,21 +828,28 @@ section {
   cursor:pointer;
 }
 
-.mobile-menu{
-  position:absolute;
-  top:70px;
-  right:20px;
-  background:#020617;
-  border-radius:12px;
-  padding:15px;
-  display:flex;
-  flex-direction:column;
-  gap:12px;
+.mobile-menu a{
+  padding:10px 14px;
+  border-radius:10px;
+  transition:.2s ease;
 }
 
-.mobile-menu a{
+/* Hover */
+.mobile-menu a:hover{
+  background:rgba(255,255,255,.08);
+}
+
+/* Touch press effect */
+.mobile-menu a:active{
+  background:rgba(99,102,241,.25);
+  transform:scale(.96);
+}
+
+.mobile-menu a.active{
+  background:linear-gradient(135deg,#3b82f6,#9333ea);
   color:white;
-  text-decoration:none;
+  font-weight:600;
+  box-shadow:0 0 12px rgba(147,51,234,.6);
 }
 
 /* MOBILE */
@@ -821,12 +881,41 @@ section {
     grid-template-columns:1fr;
   }
 
-  .services-modern{
-    grid-template-columns:1fr;
-    text-align:center;
+/* MOBILE FIX - SERVICES */
+@media(max-width:768px){
+
+.services-modern{
+  grid-template-columns:1fr;  /* always single column on mobile */
+}
+
+  .services-left h1{
+    font-size:26px;          /* smaller title */
+    margin-bottom:12px;
   }
 
-  .service-tabs{
-    justify-content:flex-start; /* 🔥 swipe feel */
+  .services-left p{
+    font-size:15px;          /* smaller text */
+    line-height:1.5;
+    margin-top:10px;
   }
+
+  /* Tabs */
+.service-tabs{
+  flex-wrap:wrap;            /* allow wrap */
+  justify-content:center;
+}
+
+  .service-tabs button{
+    font-size:14px;
+    padding:8px 16px;
+  }
+
+  /* Image */
+  .services-right img{
+    width:100%;
+    max-height:180px;        /* 🔥 LIMIT HEIGHT */
+    object-fit:contain;
+  }
+
+}
 }
