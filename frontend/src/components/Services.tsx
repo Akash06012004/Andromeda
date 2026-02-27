@@ -1,16 +1,33 @@
 import { useState } from "react";
 
 export default function Services() {
-  const [active, setActive] = useState<"web" | "marketing">("web");
+
+  const [active, setActive] = useState<"web" | "marketing">("web");;
+
+  const data = {
+    web: {
+      title: "Web Development",
+      desc: "We build lightning-fast websites, dashboards, admin panels and startup platforms.",
+      img: "/services-web.png"
+    },
+    marketing: {
+      title: "Digital Marketing",
+      desc: "SEO, Ads, Analytics & Growth strategies to scale your business faster.",
+      img: "/services-marketing.png"
+    }
+  };
 
   return (
     <div className="services-modern">
 
+      {/* LEFT */}
       <div className="services-left">
 
         <h1 className="services-title">Our Services</h1>
 
-        <div className="service-tabs big-tabs">
+        {/* TABS */}
+        <div className="service-tabs">
+
           <button
             className={active === "web" ? "active" : ""}
             onClick={() => setActive("web")}
@@ -24,34 +41,19 @@ export default function Services() {
           >
             Digital Marketing
           </button>
+
         </div>
 
-        {active === "web" && (
-          <p>
-            We build lightning-fast websites, dashboards, admin panels and startup
-            platforms using modern technologies like React and Node.
-          </p>
-        )}
-
-        {active === "marketing" && (
-          <p>
-            We help brands grow with SEO, paid ads, funnels, analytics and
-            data-driven marketing strategies that convert visitors into customers.
-          </p>
-        )}
+        {/* CONTENT */}
+        <p>{data[active].desc}</p>
 
       </div>
 
+      {/* RIGHT IMAGE */}
       <div className="services-right">
         <img
-          key={active}
+          src={data[active].img}
           className="service-image"
-          src={
-            active === "web"
-              ? "/services-web.png"
-              : "/services-marketing.png"
-          }
-          alt="service"
         />
       </div>
 
