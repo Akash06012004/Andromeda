@@ -57,9 +57,24 @@ export default function Contact() {
             Let’s talk.
           </p>
 
-          <div className="contact-detail">📧 Akashkumar01459@gmail.com</div>
-          <div className="contact-detail">📞 +91 9664712233</div>
-          <div className="contact-detail">📍 Gujarat,India</div>
+          <div className="contact-detail">
+  📧 
+  <a href="mailto:Akashkumar01459@gmail.com">
+    Akashkumar01459@gmail.com
+  </a>
+</div>
+
+<div className="contact-detail">
+  📞 
+  <a href="tel:+919664712233">
+    +91 9664712233
+  </a>
+</div>
+
+<div className="contact-detail">
+  📍 
+  <span>Gujarat, India</span>
+</div>
         </div>
 
         {/* RIGHT CARD */}

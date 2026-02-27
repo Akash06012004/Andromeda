@@ -347,20 +347,27 @@
   background:
   linear-gradient(rgba(2,6,23,.85), rgba(2,6,23,.95)),
   url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f");
+  background-size: cover;
+  background-size: center;
 }
 
 .contact-wrap{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:60px;
+  gap:40px;
   padding:0 8%;
+  align-items: center;
 }
 
 .glass-box{
   background:rgba(255,255,255,.08);
   backdrop-filter:blur(15px);
   border-radius:20px;
-  padding:35px;
+  padding:30px;
+
+  width:100%;
+  max-width:420px;
+  margin: auto;
 }
 
 .contact-form input,
@@ -420,21 +427,12 @@
 
 /* CONTACT */
 
-.contact-section{
-  padding:120px 0 100px;
-  background:
-  linear-gradient(rgba(2,6,23,.85), rgba(2,6,23,.95)),
-  url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80");
-  background-size:cover;
-  background-position:center;
-}
-
 /* TWO COLUMN LAYOUT */
 
 .contact-wrap{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:80px;
+  gap:40px;
   padding:0 8%;
   align-items:center;
 }
@@ -1041,15 +1039,20 @@ section {
     grid-template-columns:1fr;
   }
 
-  .contact-wrap{
-    grid-template-columns:1fr;
+.contact-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 0 8%;
+  align-items: center;
+}
+
+/* MOBILE FIX */
+@media (max-width: 768px) {
+  .contact-wrap {
+    grid-template-columns: 1fr;
+    padding: 0 20px;
   }
-
-/* MOBILE FIX - SERVICES */
-@media(max-width:768px){
-
-.services-modern{
-  grid-template-columns:1fr;  /* always single column on mobile */
 }
 
   .services-left h1{
@@ -1082,4 +1085,75 @@ section {
   }
 
 }
+
+/* ======================
+   CONTACT MOBILE FIX
+====================== */
+
+@media(max-width:768px){
+
+  /* Stack properly */
+  .contact-wrap{
+    display:flex;
+    flex-direction:column;
+    gap:30px;
+    padding:0 20px;
+  }
+
+  /* Make both cards full width */
+  .glass-box{
+    width:100%;
+    max-width:100%;
+  }
+
+  /* Fix spacing between cards */
+  .contact-info{
+    margin-bottom:10px;
+  }
+
+  /* Prevent WhatsApp overlap */
+  .contact-form{
+    margin-bottom:80px;   /* space for floating button */
+  }
+
+  /* Reduce padding */
+  .contact-section{
+    padding:60px 0;
+  }
+
+  /* Fix heading size */
+  .contact-info h2,
+  .contact-form h2{
+    font-size:26px;
+  }
+
+}
+
+.contact-detail{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  margin:10px 0;
+}
+
+.contact-detail span{
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+.contact-detail a{
+  color: white;
+  text-decoration: none;
+  transition: .25s;
+  word-break: break-word;
+}
+
+/* Hover */
+.contact-detail a:hover{
+  color: #60a5fa;
+}
+
+/* Mobile tap effect */
+.contact-detail a:active{
+  opacity: 0.7;
 }
