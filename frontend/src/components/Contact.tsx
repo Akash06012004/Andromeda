@@ -1,6 +1,9 @@
 import axios from "axios";
 import { useState } from "react";
+import { track } from "@vercel/analytics";
 
+// Example
+track("lead_submitted");
 export default function Contact() {
 
   const [email, setEmail] = useState("");
@@ -10,11 +13,10 @@ export default function Contact() {
   const sendMessage = async () => {
     if (!email || !message) return alert("Fill all fields");
 
-    await axios.post("http://localhost:5000/leads", {
-      email,
-      message
-    });
+    await axios.post("/leads", { email,message});
 
+    track("lead_submitted");
+    
     setEmail("");
     setMessage("");
     setSent(true);

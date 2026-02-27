@@ -4,7 +4,6 @@ import Home from "./pages/Home";
 import Admin from "./pages/Admin";
 import Login from "./pages/Login";
 import { AnimatePresence, motion } from "framer-motion";
-
 /* JWT Protected Route */
 
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
@@ -14,7 +13,6 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
 
 function App() {
   const location = useLocation();
-
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
@@ -68,7 +66,7 @@ function App() {
 
       </Routes>
     </AnimatePresence>
-  );
-}
+  )
+};
 
 export default App;

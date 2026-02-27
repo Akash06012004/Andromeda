@@ -5,6 +5,10 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { motion } from "framer-motion";
 
+// 🔥 VERCEL
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
+
 export default function Home() {
 
   useEffect(() => {
@@ -18,7 +22,6 @@ export default function Home() {
 
       {/* HERO */}
       <section id="home" className="hero">
-
         <div className="hero-left">
 
           <motion.h1
@@ -49,7 +52,6 @@ export default function Home() {
           </a>
 
         </div>
-
       </section>
 
       {/* SERVICES */}
@@ -60,7 +62,6 @@ export default function Home() {
       {/* ABOUT */}
       <section id="about">
         <div className="about-container">
-
           <h2>About Andromeda</h2>
 
           <div className="about-cards">
@@ -90,7 +91,6 @@ export default function Home() {
             </div>
 
           </div>
-
         </div>
       </section>
 
@@ -100,6 +100,10 @@ export default function Home() {
       </section>
 
       <Footer />
+
+      {/* 🔥 VERCEL TRACKING */}
+      <Analytics />
+      <SpeedInsights />
     </>
   );
 }
