@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Admin from "./pages/Admin";
 import Login from "./pages/Login";
 import { AnimatePresence, motion } from "framer-motion";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 /* JWT Protected Route */
 
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
@@ -14,58 +15,61 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
 function App() {
   const location = useLocation();
   return (
-    <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
+    <>
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
 
-        {/* HOME */}
-        <Route
-          path="/"
-          element={
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.4 }}
-            >
-              <Home />
-            </motion.div>
-          }
-        />
-
-        {/* LOGIN */}
-        <Route
-          path="/login"
-          element={
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-            >
-              <Login />
-            </motion.div>
-          }
-        />
-
-        {/* ADMIN (JWT PROTECTED) */}
-        <Route
-          path="/admin"
-          element={
-            <ProtectedRoute>
+          {/* HOME */}
+          <Route
+            path="/"
+            element={
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.4 }}
               >
-                <Admin />
+                <Home />
               </motion.div>
-            </ProtectedRoute>
-          }
-        />
+            }
+          />
 
-      </Routes>
-    </AnimatePresence>
+          {/* LOGIN */}
+          <Route
+            path="/login"
+            element={
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <Login />
+              </motion.div>
+            }
+          />
+
+          {/* ADMIN (JWT PROTECTED) */}
+          <Route
+            path="/admin"
+            element={
+              <ProtectedRoute>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.4 }}
+                >
+                  <Admin />
+                </motion.div>
+              </ProtectedRoute>
+            }
+          />
+
+        </Routes>
+      </AnimatePresence>
+      <SpeedInsights />
+    </>
   )
 };
 

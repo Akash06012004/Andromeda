@@ -7,7 +7,6 @@ import { motion } from "framer-motion";
 
 // 🔥 VERCEL
 import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/react";
 
 export default function Home() {
 
@@ -103,7 +102,6 @@ export default function Home() {
 
       {/* 🔥 VERCEL TRACKING */}
       <Analytics />
-      <SpeedInsights />
     </>
   );
 }
